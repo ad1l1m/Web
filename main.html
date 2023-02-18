@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/assets/js/jquery-3.5.1.min.js"></script>
+    <meta charset="utf-8">
+    <title>Тендеры</title>
+    <script src="eel.js"></script>
+    <link rel="icon" type="image/png" href="/C:/Users/Adil/OneDrive/Рабочий стол/web/favicon.png">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <input id="location" type="text" placeholder="Введите цену без пробелов" value="320000000000">
+    <button id="show">По цене</button>
+<button id="show1">По области</button>
+    <p id="info"></p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script type="text/javascript">
+        async function display_pars() {
+            let place = document.getElementById('location').value;
+            let res = await eel.get_pars(place)();
+            document.getElementById('info').innerHTML = res;
+		  
+          	}
+jQuery('#show').on('click', function() {
+            display_pars();
+        });
+      </script>
+<script type="text/javascript">
+ async function display_region() {
+            let place = document.getElementById('location').value;
+	   
+            let res = await eel.get_parsbyreg(place)();
+            document.getElementById('info').innerHTML = res;
+}
+
+jQuery('#show1').on('click', function() {
+            display_region();
+        });
+    </script>
+</body>
+
+</html>
