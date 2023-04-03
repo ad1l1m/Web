@@ -2,7 +2,7 @@ import eel
 import requests
 from bs4 import BeautifulSoup
 import re
-
+import os
 
 @eel.expose
 def get_pars(price):
@@ -58,6 +58,6 @@ def get_parsbyreg(region):
                             break
     return save
 
-eel.init("C:/Users/Adil/OneDrive/Рабочий стол/web")#запуск приложения
+eel.init(os.getcwd())#запуск приложения
 eel.start("main.html", size=(800,1000))
 
